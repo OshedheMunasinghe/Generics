@@ -6,8 +6,8 @@ public class Main {
         Milk milk = new Milk();
         Oranges oranges = new Oranges();
 
-        Box boxOfMilk = new Box();
-        Box boxOfOranges = new Box();
+        Box<Milk> boxOfMilk = new Box<>();
+        Box<Oranges> boxOfOranges = new Box<>();
 
         boxOfMilk.add(milk);
         boxOfOranges.add(oranges);
@@ -15,9 +15,11 @@ public class Main {
         // boxOfMilk.remove().drin??  //how can you call to drink first and then call remove?
 
         //the answer is you need to typecast
-        ((Milk)boxOfMilk.remove()).drink(); //typcast the milk then wrap around to remove.. otherwise you can't call drink()
-        ((Oranges)boxOfOranges.remove()).juggle();
+        boxOfMilk.remove().drink(); //typcast the milk then wrap around to remove.. otherwise you can't call drink()
+        boxOfOranges.remove().juggle();
 
+        //What happens if we switch add in orange to milk the answer is we get exception thrown
+        //to solve out we need to fix so called Generics
 
 
     }
